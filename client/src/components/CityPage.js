@@ -66,7 +66,7 @@ function CityPage() {
       {recommendations.map((recco) => {
         const reccoLink = `/recommendation/${recco.slug.current}`;
         return (
-          <div>
+          <div key={recco._id}>
             <Link to={reccoLink}>{recco.name} - {recco.category}</Link>
           </div>
         )
