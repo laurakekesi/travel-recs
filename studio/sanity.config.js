@@ -10,7 +10,41 @@ export default defineConfig({
   projectId: '26828cl1',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            // Pending recommendations view
+            S.listItem()
+              .title('Pending Recommendations')
+              .icon(() => '⏳')
+              .child(
+                S.documentList()
+                  .title('Pending Recommendations')
+                  .filter('_type == "recommendation" && status == "pending"')
+              ),
+            
+            // Divider
+            S.divider(),
+            
+            // All other document types
+            ...S.documentTypeListItems().filter(
+              (listItem) => !['recommendation'].includes(listItem.getId())
+            ),
+            
+            // All recommendations (original list)
+            S.listItem()
+              .title('All Recommendations')
+              .child(
+                S.documentTypeList('recommendation')
+                  .title('All Recommendations')
+              ),
+          ])
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,

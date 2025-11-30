@@ -80,6 +80,9 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
             if (formData.restaurantType) {
                 recommendationDoc.restaurantType = formData.restaurantType;
             }
+            if (formData.veggieFriendly !== null) {
+            recommendationDoc.veggieFriendly = formData.veggieFriendly;
+            }
             if (formData.barType) {
                 recommendationDoc.barType = formData.barType;
             }
@@ -111,6 +114,7 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
                     website: '',
                     category: '',
                     restaurantType: '',
+                    veggieFriendly: null,
                     barType: '',
                     priceLevel: '',
                     mealTypes: [],
@@ -197,6 +201,7 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
                                             <option value="french">French</option>
                                             <option value="greek">Greek</option>
                                             <option value="indian">Indian</option>
+                                            <option value="irish">Irish</option>
                                             <option value="italian">Italian</option>
                                             <option value="japanese">Japanese</option>
                                             <option value="korean">Korean</option>
@@ -226,6 +231,33 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
                                             ))}
                                         </div>
                                     </div>
+                                    <div className="form-group">
+  <label>Veggie friendly? *</label>
+  <div className="radio-group">
+    <label className="radio-label">
+      <input
+        type="radio"
+        name="veggieFriendly"
+        value="true"
+        checked={formData.veggieFriendly === true}
+        onChange={() => setFormData({...formData, veggieFriendly: true})}
+        required
+      />
+      Yes
+    </label>
+    <label className="radio-label">
+      <input
+        type="radio"
+        name="veggieFriendly"
+        value="false"
+        checked={formData.veggieFriendly === false}
+        onChange={() => setFormData({...formData, veggieFriendly: false})}
+        required
+      />
+      No
+    </label>
+  </div>
+</div>
                                 </>
                             )}
 

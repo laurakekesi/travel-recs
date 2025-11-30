@@ -51,6 +51,7 @@ export default {
             {title: 'French', value: 'french'},
             {title: 'Greek', value: 'greek'},
             {title: 'Indian', value: 'indian'},
+            {title: 'Irish', value: 'irish'},
             {title: 'Italian', value: 'italian'},
             {title: 'Japanese', value: 'japanese'},
             {title: 'Korean', value: 'korean'},
@@ -64,6 +65,12 @@ export default {
             {title: 'Other', value: 'other'}
             ]
         },
+        hidden: ({document}) => document?.category !== 'restaurant'
+    },
+        {
+        name: 'veggieFriendly',
+        title: 'Veggie friendly?',
+        type: 'boolean',
         hidden: ({document}) => document?.category !== 'restaurant'
     },
     {
