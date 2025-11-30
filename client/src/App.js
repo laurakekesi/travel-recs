@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import CityList from './components/CityList';
 import CityPage from './components/CityPage';
+import ReccoPage from './components/ReccoPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<CityList/>} />
           <Route path="/en" element={<Navigate to="/" replace />} />
           <Route path="/city/:slug" element={<CityPage/>} />
+          <Route path="/recommendation/:slug" element={<ReccoPage/>} />
         </Routes>
       </div>
     </Router>
