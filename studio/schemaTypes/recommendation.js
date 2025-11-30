@@ -19,6 +19,11 @@ export default {
       }
     },
     {
+      name: 'website',
+      title: 'Website',
+      type: 'string',
+    },
+    {
       name: 'category',
       title: 'Category',
       type: 'string',
