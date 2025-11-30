@@ -117,3 +117,34 @@
   max-height: 200px;
   object-fit: cover;
 }
+input::placeholder,
+textarea::placeholder{
+    font-family: 'Arial'!important;
+    font-style: normal;
+}
+.file-input {
+  display: none; /* hide real file input */
+}
+
+.custom-file-button {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 6px;
+  transition: background 0.2s ease;
+}
+
+.custom-file-button:hover {
+  background-color: #45a049;
+}
+
+.image-preview img {
+  margin-top: 10px;
+  max-width: 200px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
