@@ -56,6 +56,7 @@ useEffect(() => {
 
   return (
     <div>
+      <Link to="/">Take me home 🥺</Link>
        <h1>{city.name}</h1>
        { recommendations.map((recco) => {
         const reccoLink = `/recommendation/${recco.slug.current}`;
