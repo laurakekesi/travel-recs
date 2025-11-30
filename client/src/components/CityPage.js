@@ -27,6 +27,7 @@ useEffect(() => {
       return client.fetch(`*[_type == "recommendation" && city._ref == $cityId && status == "approved"]{
         _id,
         name,
+        slug,
         category,
         restaurantType,
         priceLevel,
@@ -57,9 +58,10 @@ useEffect(() => {
     <div>
        <h1>{city.name}</h1>
        { recommendations.map((recco) => {
+        const reccoLink = `/recommendation/${recco.slug.current}`;
         return(
             <div>
-                {recco.name}, {recco.category}
+               <Link to={reccoLink}>{recco.name} - {recco.category}</Link>
             </div>
         )
        })}
