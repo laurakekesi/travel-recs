@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react'
-import { client } from '../sanityClient'
-import './CityList.css'
+import { useEffect, useState } from 'react';
+import { client } from '../sanityClient';
+import { useNavigate } from 'react-router-dom';
+import './CityList.css';
 
 function CityList() {
-  const [cities, setCities] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const navigate = useNavigate();
+  const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     client.fetch(`*[_type == "city"] | order(name asc) {
@@ -32,10 +34,7 @@ function CityList() {
   )
 
   const handleCitySelect = (city) => {
-    // For now just log it, later we'll navigate to the city page
-    console.log('Selected:', city.name)
-    setSearchTerm(city.name)
-    setIsDropdownOpen(false)
+    navigate(`/city/${city.slug.current}`);
   }
 
   if (loading) return <div>Loading cities...</div>
