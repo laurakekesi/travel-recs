@@ -19,7 +19,7 @@ function CityPage() {
       categories.push(recco.category);
     })
     const uniqueCategories = new Set(categories);
-    setRecommendationCat(uniqueCategories);
+    setRecommendationCat([...uniqueCategories]);
   }
 
   useEffect(() => {
@@ -74,6 +74,13 @@ function CityPage() {
         <h1>{city.name}</h1>
       </div>
       <Link to="/">Take me home 🥺</Link>
+      <div class="category-nav">
+        {recommendationCat.map((cat) => {
+          return (
+            <button class={cat}>{cat}</button>
+          )
+        })}
+      </div>
       <h3 id="add-recommendation" onClick={() => setIsModalOpen(true)} style={{ cursor: 'pointer' }}>
         Add new recommendation!
       </h3>
@@ -81,7 +88,7 @@ function CityPage() {
         const reccoLink = `/recommendation/${recco.slug.current}`;
         return (
           <div key={recco._id}>
-            <Link to={reccoLink} class={recco.category}>{recco.name} - {recco.category}</Link>
+            <Link to={reccoLink}>{recco.name} - {recco.category}</Link>
           </div>
         )
       })}
