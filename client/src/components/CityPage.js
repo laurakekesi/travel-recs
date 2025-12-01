@@ -57,9 +57,13 @@ function CityPage() {
   if (city) console.log(city, recommendations);
 
   return (
-    <div>
+    <div class="city-wrapper">
+      <div class="hero-city-banner">
+        <img class="hero-city-banner-image" alt={city.name} src={city.imageUrl}/>
+        <h1>{city.name}</h1>
+        {/* <h1 style={{ backgroundImage: `url(${city.imageUrl})` }}>{city.name}</h1> */}
+      </div>
       <Link to="/">Take me home 🥺</Link>
-      <h1>{city.name}</h1>
       <h3 id="add-recommendation" onClick={() => setIsModalOpen(true)} style={{ cursor: 'pointer' }}>
         Add new recommendation!
       </h3>
