@@ -35,3 +35,13 @@
     width: 100%;
     position:relative;
 }
+.bar {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='80' height='96' viewport='0 0 100 100' style='fill:black;font-size:48px;'><text y='40%'>🍸</text></svg>")
+      32 0,
+    auto!important;
+}
+.restaurant {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='80' height='96' viewport='0 0 100 100' style='fill:black;font-size:48px;'><text y='40%'>🍝</text></svg>")
+      32 0,
+    auto!important;
+}

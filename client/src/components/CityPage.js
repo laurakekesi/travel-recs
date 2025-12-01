@@ -11,6 +11,16 @@ function CityPage() {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [recommendationCat, setRecommendationCat] = useState([]);
+
+  function uniqueCategories() {
+    let categories = [];
+    recommendations.map((recco) => {
+      categories.push(recco.category);
+    })
+    const uniqueCategories = new Set(categories);
+    setRecommendationCat(uniqueCategories);
+  }
 
   useEffect(() => {
     // Fetch city details
@@ -23,7 +33,7 @@ function CityPage() {
   }`, { slug })
       .then(data => {
         setCity(data)
-        console.log('City data:', data) // Add this to debug
+        console.log('City data:', data)
 
         // Fetch recommendations for this city
         return client.fetch(`*[_type == "recommendation" && city._ref == $cityId && status == "approved"]{
@@ -52,16 +62,16 @@ function CityPage() {
       })
   }, [slug])
 
+  useEffect(uniqueCategories, [recommendations])
+
   if (loading) return <Loading />
   if (!city) return <div>City not found</div>
-  if (city) console.log(city, recommendations);
 
   return (
     <div class="city-wrapper">
       <div class="hero-city-banner">
         <img class="hero-city-banner-image" alt={city.name} src={city.imageUrl}/>
         <h1>{city.name}</h1>
-        {/* <h1 style={{ backgroundImage: `url(${city.imageUrl})` }}>{city.name}</h1> */}
       </div>
       <Link to="/">Take me home 🥺</Link>
       <h3 id="add-recommendation" onClick={() => setIsModalOpen(true)} style={{ cursor: 'pointer' }}>
@@ -71,7 +81,7 @@ function CityPage() {
         const reccoLink = `/recommendation/${recco.slug.current}`;
         return (
           <div key={recco._id}>
-            <Link to={reccoLink}>{recco.name} - {recco.category}</Link>
+            <Link to={reccoLink} class={recco.category}>{recco.name} - {recco.category}</Link>
           </div>
         )
       })}
