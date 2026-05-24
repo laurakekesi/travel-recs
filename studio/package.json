@@ -9,12 +9,16 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "seed:montreal": "node scripts/seed-montreal.mjs",
+    "seed:europe": "node scripts/seed-europe.mjs",
+    "seed:all": "node scripts/seed-all.mjs"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
+    "@sanity/client": "^7.13.1",
     "@sanity/vision": "^4.19.0",
     "react": "^19.1",
     "react-dom": "^19.1",

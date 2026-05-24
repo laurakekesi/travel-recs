@@ -2,6 +2,65 @@
     display: flex;
     flex-direction: column;
 }
+
+.city-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 3rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.back-home {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.city-description {
+    color: #444;
+    line-height: 1.55;
+    margin: 0 0 0.5rem;
+}
+
+.city-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.city-list-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.add-recco-btn {
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #1a1a1a;
+    background: #1a1a1a;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.add-recco-btn:hover {
+    background: #333;
+}
+
+.results-count {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0 0 0.75rem;
+}
+
+.city-not-found {
+    padding: 3rem;
+    text-align: center;
+}
 .hero-city-banner {
     width: 100%;
     height: 30vh;

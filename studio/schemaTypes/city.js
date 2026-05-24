@@ -37,6 +37,13 @@ export default {
       name: 'country',
       title: 'Country',
       type: 'string'
-    }
+    },
+    {
+      name: 'bestOfIntro',
+      title: 'Best of section intro',
+      type: 'text',
+      rows: 2,
+      description: 'Optional intro text shown above the Best of carousel on the city page',
+    },
   ]
 }

@@ -1,0 +1,62 @@
+.recco-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: #333;
+}
+
+.recco-hero-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.recco-page h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.recco-meta {
+  color: #666;
+  margin: 0 0 0.75rem;
+  text-transform: capitalize;
+}
+
+.recco-meta-capitalize {
+  text-transform: capitalize;
+}
+
+.recco-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.recco-meals {
+  font-size: 0.9rem;
+  color: #555;
+  text-transform: capitalize;
+}
+
+.recco-description {
+  line-height: 1.55;
+  margin: 1rem 0;
+}
+
+.recco-address,
+.recco-website {
+  font-size: 0.95rem;
+}
+
+.recco-not-found {
+  padding: 3rem;
+  text-align: center;
+}

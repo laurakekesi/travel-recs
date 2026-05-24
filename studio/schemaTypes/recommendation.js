@@ -62,6 +62,8 @@ export default {
             {title: 'Thai', value: 'thai'},
             {title: 'Turkish', value: 'turkish'},
             {title: 'Vietnamese', value: 'vietnamese'},
+            {title: 'Syrian', value: 'syrian'},
+            {title: 'Romanian', value: 'romanian'},
             {title: 'Other', value: 'other'}
             ]
         },
@@ -90,6 +92,27 @@ export default {
         hidden: ({document}) => document?.category !== 'restaurant'
     },
     {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          {title: 'Veggie friendly', value: 'veggie-friendly'},
+          {title: 'Brunch', value: 'brunch'},
+          {title: 'Natural wine', value: 'natural-wine'},
+          {title: 'Wine bar', value: 'wine-bar'},
+          {title: 'Craft beer', value: 'craft-beer'},
+          {title: 'Tasting menu', value: 'tasting-menu'},
+          {title: 'No reservations', value: 'no-reservations'},
+          {title: 'Lunch spot', value: 'lunch-spot'},
+          {title: 'Farm to table', value: 'farm-to-table'},
+          {title: 'Montreal classic', value: 'montreal-classic'},
+          {title: 'Markets', value: 'markets'},
+        ],
+      },
+    },
+    {
         name: 'barType',
         title: 'Bar Type',
         type: 'string',
@@ -100,6 +123,7 @@ export default {
             {title: 'Pub', value: 'pub'},
             {title: 'Sports', value: 'sports'},
             {title: 'Wine', value: 'wine'},
+            {title: 'Brewpub', value: 'brewpub'},
             {title: 'Other', value: 'other'}
             ]
         },

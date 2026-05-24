@@ -29,9 +29,14 @@ export default defineConfig({
             // Divider
             S.divider(),
             
+            S.listItem()
+              .title('Best Of')
+              .icon(() => '⭐')
+              .child(S.documentTypeList('bestOfEntry').title('Best Of entries')),
+
             // All other document types
             ...S.documentTypeListItems().filter(
-              (listItem) => !['recommendation'].includes(listItem.getId())
+              (listItem) => !['recommendation', 'bestOfEntry'].includes(listItem.getId())
             ),
             
             // All recommendations (original list)

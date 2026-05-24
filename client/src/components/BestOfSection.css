@@ -1,0 +1,73 @@
+.best-of-section {
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e8e8e8;
+}
+
+.best-of-heading {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.best-of-intro {
+  color: #555;
+  margin: 0 0 1rem;
+  max-width: 42rem;
+}
+
+.best-of-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.best-of-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #fafafa;
+  transition: box-shadow 0.15s;
+}
+
+.best-of-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.best-of-card-image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.best-of-card-body {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.best-of-card-body h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.best-of-card-body p {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.best-of-meta {
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  color: #777;
+}

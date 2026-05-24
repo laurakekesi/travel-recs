@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { client } from '../sanityClient';
+import { TAGS } from '../constants/filters';
 import './AddReccoModal.css';
 
 function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
@@ -10,6 +11,7 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
         barType: '',
         priceLevel: '',
         mealTypes: [],
+        tags: [],
         description: '',
         address: ''
     });
@@ -36,6 +38,15 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
             mealTypes: prev.mealTypes.includes(mealType)
                 ? prev.mealTypes.filter(m => m !== mealType)
                 : [...prev.mealTypes, mealType]
+        }));
+    };
+
+    const handleTagToggle = (tag) => {
+        setFormData(prev => ({
+            ...prev,
+            tags: prev.tags.includes(tag)
+                ? prev.tags.filter(t => t !== tag)
+                : [...prev.tags, tag]
         }));
     };
 
@@ -92,6 +103,9 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
             if (formData.mealTypes.length > 0) {
                 recommendationDoc.mealTypes = formData.mealTypes;
             }
+            if (formData.tags.length > 0) {
+                recommendationDoc.tags = formData.tags;
+            }
 
             if (imageAsset) {
                 recommendationDoc.image = {
@@ -118,6 +132,7 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
                     barType: '',
                     priceLevel: '',
                     mealTypes: [],
+                    tags: [],
                     description: '',
                     address: ''
                 });
@@ -278,6 +293,22 @@ function AddReccoModal({ isOpen, onClose, cityId, cityName }) {
                                     </select>
                                 </div>
                             )}
+
+                            <div className="form-group">
+                                <label>Tags</label>
+                                <div className="checkbox-group">
+                                    {TAGS.map(tag => (
+                                        <label key={tag.value} className="checkbox-label">
+                                            <input
+                                                type="checkbox"
+                                                checked={formData.tags.includes(tag.value)}
+                                                onChange={() => handleTagToggle(tag.value)}
+                                            />
+                                            {tag.title}
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
 
                             <div className="form-group">
                                 <label>Price Level</label>
